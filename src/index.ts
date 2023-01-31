@@ -3,8 +3,8 @@ import { server } from './lib/fastify';
 import { AppDataSource } from './lib/typeorm';
 
 async function run() {
-  await AppDataSource.initialize()
-  // await server.listen({ port: FASTIFY_PORT, host: FASTIFY_ADDR })
+  await AppDataSource.initialize();
+  await server.listen({ port: FASTIFY_PORT, host: FASTIFY_ADDR });
 }
 
 run().catch(console.error)

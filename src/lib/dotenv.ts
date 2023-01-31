@@ -17,5 +17,6 @@ export const DB_USER = getOrThrow("DB_USER");
 export const DB_PASSWORD = getOrThrow("DB_PASSWORD");
 export const DB_DB = getOrThrow("DB_DB");
 export const FASTIFY_ADDR = getOrThrow("FASTIFY_ADDR");
-export const FASTIFY_PORT = getOrThrow("FASTIFY_ADDR");
+export const FASTIFY_PORT = parseInt(getOrThrow("FASTIFY_PORT"), 10);
+export const FASTIFY_LOGGING = true; // raccourci, fonction getOrThrow a modifier 
 

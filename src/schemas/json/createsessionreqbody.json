@@ -1,6 +1,6 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema",
-    "title": "CreateSessionRequestBody",
+    "title": "CreateSessionReqBody",
+    "type": "object",
     "properties": {
         "email": {
             "type": "string"
@@ -9,5 +9,5 @@
             "type": "string"
         }
     },
-    "required": ["firstName", "lastName", "email", "id"]
+    "required": ["firstname", "lastname", "email", "id"]
 }

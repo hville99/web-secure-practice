@@ -1,5 +1,5 @@
-import * as chai from 'chai';
-import * as chaiAsPromised from 'chai-as-promised';
+import * as chai from 'chai'; // TODO: get rid of * import (useless and painfull)
+import * as chaiAsPromised from 'chai-as-promised'; // TODO: same as precedent line
 import {AppDataSource} from "../../lib/typeorm";
 import {User} from "../../entities/user";
 import {expect} from "chai";
@@ -25,7 +25,7 @@ describe('User', function () {
 
             const user = new User();
 
-            user.firstName = faker.name.firstName();
+            user.firstname = faker.name.firstName();
             user.lastname = faker.name.lastName();
             user.email = faker.internet.email();
             user.passwordHash = "123456";
@@ -40,7 +40,7 @@ describe('User', function () {
 
             const user = new User();
 
-            user.firstName = faker.name.firstName();
+            user.firstname = faker.name.firstName();
             user.lastname = faker.name.lastName();
             user.passwordHash = "123456";
 
@@ -58,7 +58,7 @@ describe('User', function () {
 
             const user = new User();
 
-            user.firstName = faker.name.firstName();
+            user.firstname = faker.name.firstName();
             user.lastname = faker.name.lastName();
             user.email = faker.internet.email();
             user.passwordHash = "123456";
@@ -85,7 +85,7 @@ describe('User', function () {
 
             const email = "JOHN.DOE@gmail.com";
 
-            user.firstName = faker.name.firstName();
+            user.firstname = faker.name.firstName();
             user.lastname = faker.name.lastName();
             user.email = email;
             user.passwordHash = "123456";
@@ -105,7 +105,7 @@ describe('User', function () {
 
             const email = faker.internet.email();
 
-            user.firstName = faker.name.firstName();
+            user.firstname = faker.name.firstName();
             user.lastname = faker.name.lastName();
             user.email = email;
             user.passwordHash = "123456";
@@ -114,7 +114,7 @@ describe('User', function () {
 
             const secondUser = new User();
 
-            secondUser.firstName = faker.name.firstName();
+            secondUser.firstname = faker.name.firstName();
             secondUser.lastname = faker.name.lastName();
             secondUser.email = email;
             secondUser.passwordHash = "123456";
