@@ -1,21 +1,18 @@
-import { DataSource } from "typeorm"
-import { config } from "dotenv";
+import { DataSource, Db } from "typeorm";
+import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DB } from "./dotenv";
+import { User } from "../entities/user";
+import {Subscriber} from "../entities/subscriber";
 
-config();
+//require('dotenv').config()
 
 export const AppDataSource = new DataSource({
-    type: "postgres",
-    host: process.env.HOSTNAME,
-    port: parseInt(`${process.env.PORT}`, 10),
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    database: "test",
+    type: 'mysql',
+    host: DB_HOST,
+    port: DB_PORT,
+    username: DB_USER,
+    database: DB_DB,
+    password: DB_PASSWORD,
+    entities: [User],
+    subscribers: [Subscriber]
 })
 
-AppDataSource.initialize()
-    .then(() => {
-        console.log("Data Source has been initialized!")
-    })
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    })
