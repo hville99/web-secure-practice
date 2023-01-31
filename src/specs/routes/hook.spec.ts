@@ -1,6 +1,6 @@
 import fastify, { FastifyInstance, RouteOptions } from "fastify";
 import { expect } from "chai";
-import { assertsResponseSchemaPresenceHook } from "../../lib/fastify";
+import { assertsResponseSchemaPresenceHook, server as server_test } from "../../lib/fastify";
 
 
 describe('onRoute Hook', function() {
@@ -11,7 +11,7 @@ describe('onRoute Hook', function() {
             const path = '/hello';
 
             // Act
-            const server = fastify()
+            const server_hook = fastify()
                 .addHook('onRoute', assertsResponseSchemaPresenceHook)
                 .register(async (fastify: FastifyInstance) => {
                     fastify.post(path, () => true)
@@ -19,9 +19,16 @@ describe('onRoute Hook', function() {
             
             
             // TEST
-            await expect(server).to.eventually.be.rejected.and.deep.include({
+            await expect(server_hook).to.eventually.be.rejected.and.deep.include({
                 message: 'No schema found for url /hello'
             })
+        })
+    })
+    describe('global server settings', function () {
+        it('should validate the remove additionnal option set to false', async function () {
+            // await server_test;
+
+            // expect(server_test.ajv.)
         })
     })
 })

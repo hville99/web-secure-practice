@@ -2,7 +2,14 @@ import { FASTIFY_LOGGING } from './dotenv';
 import fastify, { RouteOptions } from 'fastify';
 import { userRoutes } from '../routes/userRoutes';
 
-export const server = fastify({logger: FASTIFY_LOGGING })
+export const server = fastify({
+  logger: FASTIFY_LOGGING,
+  ajv: {
+    customOptions: {
+      removeAdditional: false
+    }
+  } 
+})
   .addHook('onRoute', assertsResponseSchemaPresenceHook)
   .register(userRoutes)
 
